@@ -18,7 +18,7 @@
                 iframe.contentWindow.document.execCommand('SaveAs')
                 document.body.removeChild(iframe)
             }
-            iframe.src = 'http://10.16.81.14:3000/getAttachmentFileStream?name=test.jpg&t' + (new Date()).getTime()
+            iframe.src = '/getAttachmentFileStream?name=test.jpg&t' + (new Date()).getTime()
             document.body.appendChild(iframe)
         }
         document.getElementById('button').onclick = iframeDownload
