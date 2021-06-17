@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>下载图片的N种方式</title>
+</head>
+
+<body>
+    <button id="button">iframe下载</button>
+    <script>
+        function iframeDownload() {
+            var iframe = document.createElement('iframe')
+            iframe.style.display = 'none'
+            iframe.onload = function () {
+                iframe.contentWindow.document.execCommand('SaveAs')
+                document.body.removeChild(iframe)
+            }
+            iframe.src = 'http://10.16.81.14:3000/getAttachmentFileStream?name=test.jpg&t' + (new Date()).getTime()
+            document.body.appendChild(iframe)
+        }
+        document.getElementById('button').onclick = iframeDownload
+    </script>
+</body>
+
+</html>
